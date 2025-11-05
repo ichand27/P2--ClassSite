@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Site</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
     <h6>Forgot Password?</h6>
 
 </div>
-<div id="Q&A" class="openPg"  style="display:block;">
+<div id="Q&A" class="openPg"  style="display:none;">
     <h4>Please answer the following questions to log into your account!</h4>
 
     <p>What is your name?<span class="*">&#42;</span></p>
@@ -40,11 +40,13 @@
     <input type="color">
 
     <p>What is your favorite subject?<span class="*">&#42;</span></p>
-    <select name="cars" id="cars">
+    <select name="subjects" id="sub">
+
   <option value="subMath">Math</option>
   <option value="subSci">Science</option>
   <option value="subHis">History</option>
   <option value="subEng">English</option>
+
   <option value="subEng">English</option>
   <option value="subEng">English</option>
   <option value="subEng">English</option>
@@ -58,7 +60,7 @@
 </div>
 </div>
 
-<div id="profile">
+<div id="profile"  style="display:none;">
 
     <p>Choose an image for your profile picture (learning friendly)</p>
     <input type="file">
@@ -67,27 +69,29 @@
 
 <div id="imgSelection" class="pfpSelect">
 
-    <img url="">
-    <img url="">
-    <img url="">
-    <img url="">
-    <img url="">
-    <img url="">
-    <img url="">
-    <img url="">
-    <img url="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
 
 </div>
 
 </div>
 
+<div id="mainPg" class="mPg" style="display:none;">
     <main>
       <h5>Welcome to Lighthouse! Here you will find all the classes registered to you.</h5>
       <button>Get Started</button>
     </main>
+</div>
 
     <footer>
-      <h6>Created by Isis Chand &copy; 2025</h6>
+      <h6>Isis Chand &copy; 2025 Lighthouse Academy</h6>
     </footer>
 
     <script src="script.js"></script>
