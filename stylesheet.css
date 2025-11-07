@@ -23,13 +23,17 @@ body {
 
 .openPg, #profile, #mainPg {
     background-color: var(--color-white);
-    padding: 40px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 500px;
     margin: 20px auto;
     text-align: center;
+}
+
+login button {
+    width: 100%;
 }
 
 header h1 {
@@ -53,7 +57,7 @@ select {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid var(--color-gold);
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1em;
     box-sizing: border-box;
 }
