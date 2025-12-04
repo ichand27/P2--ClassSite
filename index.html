@@ -1,99 +1,107 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Site</title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Age of Unawareness</title>
 
-<div id="openTxt" class="openPg">
-    <header>
-        <h1>Lighthouse</h1>
-        <h3>A beacon of light to guide your studies and desire to learn</h3>
-    </header>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+
+<header>
+<h1>Lighthouse</h1>
+<p>Your simple class dashboard</p>
+</header>
+
+
+<section id="classContainer">
+<h2>Your Classes</h2>
+<div id="classGrid"></div>
+<button id="addClassBtn">Add Class</button>
+</section>
+
+
+<script>
+const classes = [
+{ id: 1, name: "Algebra 1", teacher: "Ms. Rivera", color: "#D9534F" },
+{ id: 2, name: "World History", teacher: "Mr. Chen", color: "#F0AD4E" },
+{ id: 3, name: "English Literature", teacher: "Mrs. Thompson", color: "#C39C46" }
+];
+
+
+function makeCard(item) {
+return `
+<div class="class-card" style="border-top: 8px solid ${item.color}">
+<h3>${item.name}</h3>
+<p>Teacher: ${item.teacher}</p>
 </div>
-
-<div id="login" class="openPg">
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
+`;
+}
 
 
-<div id="forgot" class="OpenPg">
+function loadClasses() {
+const grid = document.getElementById("classGrid");
+grid.innerHTML = "";
 
-    <h6>Forgot Password?</h6>
 
+classes.forEach(function(cls) {
+grid.insertAdjacentHTML("beforeend", makeCard(cls));
+});
+}
+
+
+function showForm() {
+if (document.getElementById("addClassForm")) return;
+
+
+const form = `
+<div id="addClassForm" class="class-form">
+<h3>Add a Class</h3>
+<input id="className" type="text" placeholder="Class Name">
+<input id="classTeacher" type="text" placeholder="Teacher">
+<label>Color:</label>
+<input id="classColor" type="color" value="#D9534F">
+<button id="saveBtn">Save</button>
 </div>
-<div id="Q&A" class="openPg"  style="display:none;">
-    <h4>Please answer the following questions to log into your account!</h4>
+`;
 
-    <p>What is your name?<span class="*">&#42;</span></p>
-    <input type="text" placeholder="Example: Russell Gomes">
 
-    <p>When is your birthday?<span class="*">&#42;</span></p>
-    <input type="date">
+document.getElementById("classContainer")
+.insertAdjacentHTML("beforeend", form);
 
-    <p>What is your favorite color?<span class="*">&#42;</span></p>
-    <input type="color">
 
-    <p>What is your favorite core subject?<span class="*">&#42;</span></p>
-    <select name="subjects" id="sub">
+document.getElementById("saveBtn")
+.addEventListener("click", saveClass);
+}
 
-  <option value="subMath">Math</option>
-  <option value="subSci">Science</option>
-  <option value="subHis">History</option>
-  <option value="subEng">English</option>
 
-  <option value="subEco">Economics</option>
-  <option value="sub">English</option>
-  <option value="subEng">English</option>
-  <option value="subEng">English</option>
-  <option value="subEng">English</option>
-  <option value="subEng">English</option>
-  <option value="subEng">English</option>
-</select>
-   <br><br><br>
-    <input type="submit" name="submit">
-</div>
-</div>
+function saveClass() {
+const name = document.getElementById("className").value;
+const teacher = document.getElementById("classTeacher").value;
+const color = document.getElementById("classColor").value;
 
-<div id="profile"  style="display:none;">
 
-    <p>Choose an image for your profile picture (learning friendly)</p>
-    <input type="file">
+if (name === "" || teacher === "") return;
 
-    <p>A selection of images for you!!</p>
 
-<div id="imgSelection" class="pfpSelect">
+classes.push({ id: classes.length + 1, name, teacher, color });
 
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
-    <img src="">
 
-</div>
+loadClasses();
 
-</div>
 
-<div id="mainPg" class="mPg" style="display:none;">
-    <main>
-      <h5>Welcome to Lighthouse! Here you will find all the classes registered to you.</h5>
-      <button>Get Started</button>
-    </main>
-</div>
+document.getElementById("addClassForm").remove();
+}
 
-    <footer>
-      <h6>Isis Chand &copy; 2025 Lighthouse Academy</h6>
-    </footer>
 
-    <script src="script.js"></script>
+document.getElementById("addClassBtn").addEventListener("click", showForm);
+
+
+loadClasses();
+</script>
+
+
 </body>
 </html>
